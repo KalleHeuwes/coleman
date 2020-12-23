@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Coleman</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Solaranlage - Monatliche Übersicht</h1>
+<a th:href="@{/}">Home</a>
+<div th:if="${solarMonatliche}">
+	<label for="datumvon">Startdatum</label>
+    <input type="date" th:value="${datumvon}" th:field="${datumvon}" id="datumvon"/>
+    <label for="datumbis">Endedatum</label>
+    <input type="date" th:value="${datumbis}" th:field="${datumbis}" id="datumbis"/>
+
+    <table class="table table-responsive table-bordered table-striped">
+	    <thead>
+	    <tr>
+	        <th>Datum</th>
+	        <th>Gesamtverbrauch</th>
+	        <th>Eigenversorgung</th>
+	        <th>Netzbezug</th>
+	        <th>PV-Erzeugung</th>
+	        <th>Netzeinspeisung</th>
+	        <th>Eigenverbrauch</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr th:each="solarMonatlich : ${solarMonatliche}">
+	         <td th:text="${solarMonatlich.datum}"></td>
+	         <td th:text="${solarMonatlich.gesamtverbrauch}"></td>
+	         <td th:text="${solarMonatlich.eigenversorgung}"></td>
+	         <td th:text="${solarMonatlich.netzbezug}"></td>
+	         <td th:text="${solarMonatlich.pverzeugung}"></td>
+	         <td th:text="${solarMonatlich.netzeinspeisung}"></td>
+	         <td th:text="${solarMonatlich.eigenverbrauch}"></td>
+	    </tr>
+	    </tbody>
+	</table>
+</div>
+</body>
+</html>

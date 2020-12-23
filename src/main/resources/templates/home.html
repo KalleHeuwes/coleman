@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Coleman</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="js/utils.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body onload="onLoadHome()">
+	<div class="jumbotron text-center" style="margin-bottom:0">
+		<table>
+			<tr>
+				<td><img th:src="@{img/Coleman2.jpg}" alt="Coleman2" /></td>
+				<td><h1><span th:text="${appName}"></span></h1></td>
+				<td><h1> , You have it</h1></td>
+			</tr>
+		</table>
+	</div>
+	<div class="tab">
+	  <button class="tablinks" onclick="openCategory(event, 'solar')">Solaranlage</button>
+	  <button class="tablinks" onclick="openCategory(event, '05')">05</button>
+	  <button class="tablinks" onclick="openCategory(event, 'heuwes')">Familie Heuwes</button>
+	  <button class="tablinks" onclick="openCategory(event, 'test')">Test</button>
+	</div>
+	
+	<div id="solar" class="tabcontent">
+		<p>Hier findet man Infos zu unserer Solaranlage.</p>
+		<h3>Monatlich</h3>
+		<form onSubmit="return processSolarM();">
+		  	<label for="datumvon">Startdatum</label><input type="date" id="datumvon"/>
+		    <label for="datumbis">Endedatum</label> <input type="date" id="datumbis"/>
+	        <input type="submit" value="Abschicken" />
+	    </form>
+		<h3>Untertägig</h3>
+		<form onSubmit="return processSolarU();">
+		  	<label for="datum">Datum</label><input type="date" id="datum"/>
+	        <input type="submit" value="Abschicken" />
+		</form>
+		<!--
+		<a th:href="@{/api/solaranlage/monatlich?datumVon=2020-12-01&datumBis=2020-12-12}">Monatlich</a>
+		<a th:href="@{/api/solaranlage/untertaegig}">Stundengenau</a>
+
+		-->
+	</div>
+	
+	<div id="05" class="tabcontent">
+	  <h3>Emsdetten 05</h3>
+	  <p>Hier findet man Vereinsinfos zu Emsdetten 05.</p>
+	</div>
+	
+	<div id="heuwes" class="tabcontent">
+	  <h3>Familie Heuwes</h3>
+	  <p>Hier findet man Infos zu unserer Familie.</p>
+	</div>	
+	
+	<div id="test" class="tabcontent">
+	  <h3>Test</h3>
+	  <p>Spielwiese</p>
+	  <a th:href="@{/test}">Test 1</a>
+	</div>	
+</body>
+</html>

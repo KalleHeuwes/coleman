@@ -1,0 +1,10 @@
+
+git config --global user.name "KalleHeuwes"
+
+git config --global user.email "karlheinz.heuwes@gmail.com"
+
+git config --global user.token "cacd061fec0504203b0cd24c261ef10895db6be7"
+
+git clone -b master https://github.com/KalleHeuwes/coleman.git
+
+git commit -a -m "Versions-Nr eingefügt"
